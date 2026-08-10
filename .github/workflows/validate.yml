@@ -1,0 +1,29 @@
+name: Validate website source
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate repository structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f .gitignore
+          test -d site/pages
+          test -d site/assets/css
+          test -d site/assets/js
+          test -d site/assets/images
+          echo "TarjomeMalek repository structure OK"
