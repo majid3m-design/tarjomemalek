@@ -1,0 +1,30 @@
+# WordPress / local environment
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backups/
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node / build artifacts
+node_modules/
+dist/
+build/
+coverage/
+
+# Temporary files
+*.tmp
+*.log
+*.swp
