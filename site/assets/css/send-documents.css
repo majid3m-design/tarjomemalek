@@ -32,35 +32,263 @@
   border-radius: var(--tm-radius);
   background: #fff;
 }
-.tm-form-card { overflow: hidden; box-shadow: 0 10px 30px rgba(15,39,71,.06); }
-.tm-form-card-head { padding: 26px 28px 20px; border-bottom: 1px solid var(--tm-border); }
+.tm-form-card {
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15,39,71,.06);
+}
+.tm-form-card-head {
+  padding: 26px 28px 20px;
+  border-bottom: 1px solid var(--tm-border);
+}
 .tm-form-card-head h2,
-.tm-info-card h2 { margin: 0 0 6px; color: var(--tm-primary); font-size: 1.25rem; }
-.tm-form-card-head p { margin: 0; color: var(--tm-muted); font-size: .92rem; }
+.tm-info-card h2 {
+  margin: 0 0 6px;
+  color: var(--tm-primary);
+  font-size: 1.25rem;
+}
+.tm-form-card-head p {
+  margin: 0;
+  color: var(--tm-muted);
+  font-size: .92rem;
+}
 .tm-form-slot { padding: 24px 28px 30px; }
 
 .tm-send-aside { display: grid; gap: 18px; }
 .tm-info-card { padding: 22px; }
-.tm-info-card ul { margin: 12px 0 0; padding-right: 20px; color: var(--tm-muted); }
+.tm-info-card ul {
+  margin: 12px 0 0;
+  padding-right: 20px;
+  color: var(--tm-muted);
+}
 .tm-info-card li + li { margin-top: 8px; }
-.tm-info-card p { margin: 0; color: var(--tm-muted); font-size: .92rem; }
+.tm-info-card p {
+  margin: 0;
+  color: var(--tm-muted);
+  font-size: .92rem;
+}
 .tm-info-card-soft { background: var(--tm-soft); }
 
-/* Keep the live Forminator markup visually inside the page design without
-   forcing plugin-specific selectors into the global stylesheet. */
-.tm-form-slot .forminator-ui { margin: 0; }
-.tm-form-slot .forminator-row { margin-bottom: 16px; }
-.tm-form-slot .forminator-label { color: var(--tm-primary); font-weight: 700; }
-.tm-form-slot input:not([type="radio"]):not([type="checkbox"]),
-.tm-form-slot select,
-.tm-form-slot textarea {
+/* =========================================================
+   Forminator 644 — selectors are based on the actual live HTML.
+   Keep all plugin-specific rules scoped to this page/form slot.
+   ========================================================= */
+
+.tm-form-slot #forminator-module-644.forminator-ui {
+  margin: 0;
+  direction: rtl;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-row {
+  margin-bottom: 18px;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-field {
+  text-align: right;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--tm-primary);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-required {
+  color: #a33a3a;
+}
+
+/* Text, phone and textarea fields — matches the real field classes. */
+.tm-form-slot #forminator-module-644 input.forminator-input,
+.tm-form-slot #forminator-module-644 textarea.forminator-textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 13px;
+  border: 1px solid var(--tm-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--tm-text);
+  font: inherit;
+  line-height: 1.6;
+  box-shadow: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.tm-form-slot #forminator-module-644 textarea.forminator-textarea {
+  min-height: 108px;
+  resize: vertical;
+}
+
+.tm-form-slot #forminator-module-644 input.forminator-input:focus,
+.tm-form-slot #forminator-module-644 textarea.forminator-textarea:focus {
+  border-color: var(--tm-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15,39,71,.08);
+}
+
+/* Select2 is the visible language selector; the original <select> is
+   intentionally left alone because Forminator uses it as the data control. */
+.tm-form-slot #forminator-module-644 .forminator-field-select .select2-container.forminator-select {
+  width: 100% !important;
+  direction: rtl;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-field-select .select2-selection--single {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--tm-border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-field-select .select2-selection__rendered {
+  width: 100%;
+  padding: 8px 13px;
+  color: var(--tm-text);
+  font-family: inherit;
+  line-height: 30px;
+  text-align: right;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-field-select .select2-selection__arrow {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  width: 38px;
+  height: 46px;
+  flex: 0 0 38px;
+}
+
+/* Upload area — based on .forminator-multi-upload and its real input. */
+.tm-form-slot #forminator-module-644 .forminator-multi-upload {
+  position: relative;
+  min-height: 150px;
+  padding: 30px 18px;
+  border: 1.5px dashed #cfd6de;
+  border-radius: 12px;
+  background: var(--tm-soft);
+  text-align: center;
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-multi-upload:hover {
+  border-color: var(--tm-primary);
+}
+
+.tm-form-slot #forminator-module-644 .forminator-multi-upload-message {
+  color: var(--tm-muted);
+}
+
+.tm-form-slot #forminator-module-644 .forminator-multi-upload-message p {
+  margin: 8px 0 0;
+  font-size: .9rem;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-upload-file--forminator-field-upload-1_6a7a328babc0f {
+  color: var(--tm-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-description {
+  display: block;
+  margin-top: 7px;
+  color: var(--tm-muted);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+
+/* Uploaded-file list generated by Forminator. */
+.tm-form-slot #forminator-module-644 .forminator-uploaded-files {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Radio controls — do NOT hide, reposition, or disable the real input.
+   Forminator's .forminator-radio-bullet remains the visual control. */
+.tm-form-slot #forminator-module-644 .forminator-field-radio .forminator-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 0 0 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--tm-border);
   border-radius: 9px;
-  border-color: var(--tm-border);
+  background: #fff;
+  cursor: pointer;
+  color: var(--tm-text);
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-field-radio .forminator-radio:hover {
+  border-color: #c7d0da;
+  background: var(--tm-soft);
+}
+
+.tm-form-slot #forminator-module-644 .forminator-field-radio .forminator-radio-label {
+  flex: 1;
+  line-height: 1.65;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-field-radio input[type="radio"] {
+  flex: 0 0 auto;
+  margin: 4px 0 0;
+}
+
+/* The original Forminator bullet is retained; only spacing is adjusted. */
+.tm-form-slot #forminator-module-644 .forminator-field-radio .forminator-radio-bullet {
+  flex: 0 0 auto;
+  margin-top: 4px;
+}
+
+/* Submit button — real Forminator selector. */
+.tm-form-slot #forminator-module-644 .forminator-button-submit {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--tm-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(15,39,71,.14);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.tm-form-slot #forminator-module-644 .forminator-button-submit:hover {
+  background: var(--tm-primary-dark);
+  transform: translateY(-1px);
+}
+
+.tm-form-slot #forminator-module-644 .forminator-button-submit:focus-visible {
+  outline: 3px solid rgba(200,155,60,.45);
+  outline-offset: 3px;
 }
 
 @media (max-width: 850px) {
   .tm-send-grid { grid-template-columns: 1fr; }
   .tm-send-aside { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  /* The actual Forminator 644 markup uses 4/4/4 columns in the first row
+     and 6/6 in the radio row. Stack both patterns for easier mobile input. */
+  .tm-form-slot #forminator-module-644 .forminator-col-4,
+  .tm-form-slot #forminator-module-644 .forminator-col-6,
+  .tm-form-slot #forminator-module-644 .forminator-col-12 {
+    width: 100%;
+  }
+
+  .tm-form-slot #forminator-module-644 .forminator-row {
+    margin-bottom: 14px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -70,4 +298,8 @@
   .tm-form-card-head { padding: 20px 18px 16px; }
   .tm-form-slot { padding: 18px 16px 22px; }
   .tm-send-aside { grid-template-columns: 1fr; }
+
+  .tm-form-slot #forminator-module-644 .forminator-field-radio .forminator-radio {
+    padding: 10px;
+  }
 }
