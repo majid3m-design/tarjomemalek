@@ -16,6 +16,15 @@ The live form is `forminator-module-644`. The captured markup shows:
 
 The upload field accepts multiple files and the captured markup reports an 8 MB per-file limit. Allowed extensions shown by the form are PDF, JPG, JPEG, PNG.
 
+## Send Documents menu structure
+
+The Send Documents area now has two submenu destinations:
+
+1. **مدارک شخصی، مهاجرتی و تحصیلی** — for individual documents and personal/migration/academic cases.
+2. **ارسال پروژه‌های شرکتی و سازمانی** — for corporate and organizational translation projects.
+
+These destinations should remain distinct in navigation and should not be forced into one generic submission flow when the page content and lead qualification differ.
+
 ## Language field — correction required
 
 The captured HTML contains a data error: the visible option `فرانسوی` currently has the same value as `روسی`. The language values must be unique and semantically match the visible label.
@@ -37,23 +46,23 @@ Recommended Forminator options:
 
 Do not use Persian display labels as data values when a stable English slug is sufficient. The value is the machine-readable data; the label is what the customer sees.
 
-## Urgency field — correction required
+## Urgency field — approved wording
 
-Keep urgency optional. Use exactly these customer-facing choices:
+Keep urgency optional. The approved customer-facing choices are:
 
-1. امروز (حتماً تماس بگیرید)
-2. تا فردا
-3. تا سه روز
+1. **امروز (حتماً تماس بگیرید)**
+2. **تا فردا (روز کاری)**
+3. **تا سه روز دیگر (روز کاری)**
 
 Recommended values:
 
 | Visible label | Value |
 |---|---|
 | امروز (حتماً تماس بگیرید) | today-call |
-| تا فردا | tomorrow |
-| تا سه روز | three-days |
+| تا فردا (روز کاری) | next-business-day |
+| تا سه روز دیگر (روز کاری) | within-three-business-days |
 
-The captured HTML currently uses a mixed set of values and labels, including `فوریت تا سه روز دیگر`. The wording should be normalized to the shorter customer-facing version above.
+The wording deliberately distinguishes business days from calendar days. Do not add translation fees to these options; urgency is used to reserve/qualify the requested delivery timing, not to display pricing.
 
 ## Certification field
 
@@ -78,4 +87,5 @@ After editing, verify:
 - certification remains required;
 - upload remains multiple-file;
 - radio inputs remain native Forminator radios and selectable;
+- the two Send Documents submenu destinations point to the intended pages/forms;
 - no customer data or uploaded files are committed to GitHub.
