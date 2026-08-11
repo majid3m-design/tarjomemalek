@@ -6,14 +6,21 @@ This document is the source-of-truth checklist for the live WordPress Forminator
 
 A fresh `Copy outerHTML` capture of the published form was inspected. The live form is `forminator-module-644`.
 
-### Result: NOT READY FOR FINAL TEST YET
+### Production decision update
 
-The new capture still contains two configuration problems that must be corrected in Forminator before we test submission:
+The business requirement is that **English is the default translation language**. The office handles approximately 95% of its work in English, so English should remain preselected in the language field. This supersedes the earlier recommendation to require an active language selection.
 
-1. The language options still contain duplicate / mismatched values. In particular, visible `فرانسوی` still has value `روسی`, and visible `روسی` also has value `روسی`.
-2. The urgency labels in the captured HTML are still the old wording: `فوریت آنی امروز (حتما با دفتر تماس بگیرید)`, `فوریت تا فردا`, and `فوریت تا سه روز دیگر`. The newly approved wording with `(روز کاری)` is therefore **not yet present in the published HTML**.
+The supplied browser markup confirms that the rendered Select2 control currently displays `انگلیسی` as selected:
 
-The capture also shows that `انگلیسی` is currently selected by default in the language field. Because `زبان مقصد ترجمه` is required, the preferred production state is a neutral placeholder with **no language preselected**, so the customer must actively choose a language. Forminator's Select field supports a placeholder and a selected option overrides the placeholder; this should therefore be corrected in the form editor.
+```html
+<span class="select2-selection__rendered" ... title="انگلیسی">انگلیسی</span>
+```
+
+This snippet confirms the visible selected state, but does **not** by itself confirm the underlying `<option value="...">` for English. The underlying option values should therefore still be verified in the next full outerHTML capture.
+
+### Result: READY FOR NEXT VERIFICATION CAPTURE
+
+The form should not yet be considered ready for final submission testing until the underlying language values and approved urgency wording are confirmed in the published HTML.
 
 ## Current live structure observed in the captured HTML
 
@@ -36,7 +43,7 @@ The Send Documents area now has two submenu destinations:
 
 These destinations should remain distinct in navigation and should not be forced into one generic submission flow when the page content and lead qualification differ.
 
-## Language field — required correction
+## Language field — approved production configuration
 
 Use these customer-facing options with unique machine-readable values:
 
@@ -53,7 +60,7 @@ Use these customer-facing options with unique machine-readable values:
 | عربی | arabic |
 | سایر زبانها (در توضیحات ذکر شود) | other |
 
-Set the field to **required** but leave **no option preselected**. Use a neutral placeholder such as `زبان مقصد را انتخاب کنید`.
+The field remains **required**, and **انگلیسی is intentionally preselected** as the production default because it represents the office's dominant workload. Do not remove the English default unless the business requirement changes.
 
 ## Urgency field — approved wording
 
@@ -89,8 +96,8 @@ Do not merge the send-documents PR until a fresh published HTML capture confirms
 
 - every language has a unique value;
 - `فرانسوی` no longer submits `روسی`;
-- no language is preselected;
-- the language placeholder is neutral and instructive;
+- English is intentionally preselected;
+- the underlying English option value is `english`;
 - urgency is optional;
 - urgency labels are exactly the approved three choices;
 - certification remains required;
