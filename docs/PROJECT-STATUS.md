@@ -1,56 +1,74 @@
-# TarjomeMalek — Project Status
+# TarjomeMalek — Current Project State
 
 Last verified: 2026-08-14
 
-## Current baseline
+## Website
 
-- Repository: `majid3m-design/tarjomemalek`
-- Default branch: `main`
-- Website platform: WordPress
+- Platform: WordPress
 - Current public sitemap: 9 URLs — see `docs/SITE-MAP.md`
-- Current Google indexed-page baseline supplied from Search Console: 13 URLs, including legacy Persian URLs
-- SEO plugin generating sitemap: Rank Math
-- Important form components: Everest Forms and Forminator
-- Design direction: premium, minimalist, mobile-first, conversion-focused
-- Brand palette: white / navy / gold
+- SEO sitemap: Rank Math XML Sitemap
+- Google Search Console baseline supplied by the project owner: 13 indexed URLs, including legacy Persian URLs
+- Current primary objective: increase qualified leads and translation orders
 
-## Purpose of this repository
+## Current pages
 
-This is a lightweight project memory and source-control layer for TarjomeMalek. It is not intended to become a second copy of the entire WordPress installation.
+The authoritative current URL list is maintained in `docs/SITE-MAP.md`. Do not infer current page names from older conversation history.
 
-The repository should preserve only information that is useful for:
+## Forms
+
+- Everest Forms and Forminator are important form components.
+- Durable form structure and known implementation notes are maintained in `docs/FORMS.md`.
+- Never store customer submissions or uploaded documents in this repository.
+
+## SEO baseline
+
+- Current sitemap contains 9 URLs.
+- Several older Persian URLs remain visible in Google's indexed-page report.
+- At least one tested legacy Persian URL currently returns 404.
+- Legacy redirects are not currently a priority because the site is very new and there is no known meaningful traffic/value from those URLs.
+- Detailed SEO notes and the baseline supplied from Search Console are maintained in `docs/SEO.md`.
+
+## Design / UX
+
+- Premium, restrained, professional visual direction.
+- Navy / gold / white brand language.
+- Mobile-first and conversion-focused.
+- Real HTML text is preferred over text embedded in images.
+- Avoid unnecessarily oversized or decorative sections.
+
+## GitHub role
+
+This repository is a lightweight external project memory and source-control reference. Its primary purpose is to prevent important project state and decisions from being lost or misremembered.
+
+It may also preserve selected reusable assets or source files when they are useful. It is **not** intended to reproduce the whole WordPress installation or serve as the primary WordPress backup.
+
+## Current GitHub scope
+
+Keep only what is useful for:
 
 1. Understanding the current project quickly.
-2. Making future website/design/SEO changes safely.
-3. Preserving important reusable front-end assets and code.
-4. Supporting future migration planning without storing secrets or customer data.
+2. Making future SEO/design/content changes safely.
+3. Preserving durable decisions.
+4. Keeping selected reusable assets available for future work.
 
-## Current reference documents
+Do not expand the repository merely for completeness.
 
-- `docs/PROJECT-CONTEXT.md` — durable project/design decisions.
-- `docs/SITE-MAP.md` — authoritative current URLs and known legacy URLs.
-- `docs/SEO.md` — current SEO/Search Console baseline and audit priorities.
-- `docs/FORMS.md` — durable form structure and implementation notes.
+## Current priorities
 
-## Current site source
+1. SEO audit and correction of high-value issues.
+2. Conversion and customer-acquisition improvements.
+3. Traction measurement across organic search, Google Maps, and advertising channels.
+4. Update this file only when a material project state or priority changes.
 
-`site/pages/homepage.html` currently contains the approved front-end homepage prototype/source available in this repository. Other live WordPress pages have not yet been imported into GitHub and should not be assumed to exist here.
+## Out of scope for now
 
-## Current priority
-
-Complete only the minimum GitHub project memory needed for reliable future work. Then move the main effort to SEO and customer acquisition / traction.
-
-## Explicitly out of scope for now
-
-- Full WordPress mirror in GitHub
-- Full database backup in Git
-- Detailed documentation of every plugin setting
-- Complex deployment automation
-- Full design-system documentation
+- Full WordPress mirror
+- Full HTML/CSS archive of every live page
+- Database backup in Git
+- Detailed plugin-setting archive
+- Deployment automation
 - Automated WordPress restoration
-
-Real WordPress backups and migration procedures should be handled separately when justified by the project's needs.
 
 ## Safety boundary
 
-Never commit WordPress credentials, API keys, customer submissions, uploaded customer documents, passwords, or other secrets/PII.
+Never commit credentials, API keys, passwords, customer submissions, uploaded customer documents, or other secrets/PII.
