@@ -1,6 +1,6 @@
 # TarjomeMalek — Current Site Map
 
-Last verified: 2026-08-14
+Last verified: 2026-08-21
 
 This file is the current reference for the live WordPress site's public page structure. Do not infer current page names or URLs from older conversations when this file conflicts with them.
 
@@ -19,6 +19,21 @@ Rank Math currently reports 9 URLs in the XML sitemap:
 | Guide to certified translation | `/guide-certified-translation/` |
 | About us | `/about-us/` |
 | Contact us | `/contact-us/` |
+
+## Services page internal links
+
+The current `/services/` page links to these public pages:
+
+| Service | Destination |
+|---|---|
+| Official document translation | `/guide-certified-translation/` |
+| Syllabus translation | `/syllabus-translation/` |
+| Corporate translation | `/corporate-translation/` |
+| Official interpretation | `/interpretation/` |
+| Send documents | `/send-documents/` |
+| Contact us | `/contact-us/` |
+
+The current source version of the Services page is preserved in `site/pages/services.html`.
 
 ## Legacy URLs seen by Google
 
