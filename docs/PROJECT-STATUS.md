@@ -1,6 +1,6 @@
 # TarjomeMalek — Current Project State
 
-Last verified: 2026-08-14
+Last verified: 2026-08-21
 
 ## Website
 
@@ -13,6 +13,14 @@ Last verified: 2026-08-14
 ## Current pages
 
 The authoritative current URL list is maintained in `docs/SITE-MAP.md`. Do not infer current page names from older conversation history.
+
+## Services page
+
+- Current public URL: `/services/`
+- Current source snapshot: `site/pages/services.html`
+- Internal links were corrected/verified on 2026-08-21.
+- Current service destinations: `/guide-certified-translation/`, `/syllabus-translation/`, `/corporate-translation/`, `/interpretation/`.
+- Services page also links to `/send-documents/` and `/contact-us/` for conversion actions.
 
 ## Forms
 
