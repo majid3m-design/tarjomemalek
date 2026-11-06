@@ -1,40 +1,33 @@
 # TarjomeMalek — Current Project State
 
-Last verified: 2026-08-21
+Last verified: 2026-11-06
 
 ## Website
 
-- Platform: WordPress
-- Current public sitemap: 9 URLs — see `docs/SITE-MAP.md`
-- SEO sitemap: Rank Math XML Sitemap
-- Google Search Console baseline supplied by the project owner: 13 indexed URLs, including legacy Persian URLs
-- Current primary objective: increase qualified leads and translation orders
+- Platform: WordPress 7.1.4, PHP 8.1.34.
+- Active theme: Blocksy 2.1.53; update 2.1.61 is available.
+- Public sitemap: 9 URLs — see `docs/SITE-MAP.md`.
+- SEO plugin: Rank Math 1.0.281 (Free).
+- Primary objective: increase qualified leads and translation orders.
 
-## Current pages
+## Current public pages
 
 The authoritative current URL list is maintained in `docs/SITE-MAP.md`. Do not infer current page names from older conversation history.
 
-## Services page
-
-- Current public URL: `/services/`
-- Current source snapshot: `site/pages/services.html`
-- Internal links were corrected/verified on 2026-08-21.
-- Current service destinations: `/guide-certified-translation/`, `/syllabus-translation/`, `/corporate-translation/`, `/interpretation/`.
-- Services page also links to `/send-documents/` and `/contact-us/` for conversion actions.
-
 ## Forms
 
-- Everest Forms and Forminator are important form components.
-- Durable form structure and known implementation notes are maintained in `docs/FORMS.md`.
-- Never store customer submissions or uploaded documents in this repository.
+- Main online document intake page: `/send-documents/`, WordPress page ID 141, using Forminator form ID 644.
+- Separate corporate/B2B request form: Forminator form ID 811.
+- Forminator form ID 920 is a draft contact form; it is not the live send-documents form.
+- Live form fields and UI notes are in `docs/FORMS.md` and `docs/SEND-DOCUMENTS.md`.
 
-## SEO baseline
+## SEO and technical health
 
-- Current sitemap contains 9 URLs.
-- Several older Persian URLs remain visible in Google's indexed-page report.
-- At least one tested legacy Persian URL currently returns 404.
-- Legacy redirects are not currently a priority because the site is very new and there is no known meaningful traffic/value from those URLs.
-- Detailed SEO notes and the baseline supplied from Search Console are maintained in `docs/SEO.md`.
+- Rank Math site audit: 78/100 (good); 5 tests OK, 2 failed, 1 warning. Details and limitations are in `docs/SEO.md`.
+- XML sitemap is enabled and accessible; robots.txt allows public crawling and declares the sitemap.
+- WordPress core, Rank Math, and Forminator checksums verified without mismatches or missing files.
+- The Rank Math 404 monitor contains legacy URL hits and routine automated probes; see `docs/SITE-MAP.md` and `docs/SEO.md`.
+- SEO metadata coverage, attachment alt metadata, language metadata, and Local SEO coordinates still need attention.
 
 ## Design / UX
 
@@ -46,37 +39,16 @@ The authoritative current URL list is maintained in `docs/SITE-MAP.md`. Do not i
 
 ## GitHub role
 
-This repository is a lightweight external project memory and source-control reference. Its primary purpose is to prevent important project state and decisions from being lost or misremembered.
-
-It may also preserve selected reusable assets or source files when they are useful. It is **not** intended to reproduce the whole WordPress installation or serve as the primary WordPress backup.
-
-## Current GitHub scope
-
-Keep only what is useful for:
-
-1. Understanding the current project quickly.
-2. Making future SEO/design/content changes safely.
-3. Preserving durable decisions.
-4. Keeping selected reusable assets available for future work.
-
-Do not expand the repository merely for completeness.
+This repository is a lightweight external project memory and source-control reference. It is **not** a mirror of the WordPress installation, a database backup, or an automated restoration system.
 
 ## Current priorities
 
-1. SEO audit and correction of high-value issues.
-2. Conversion and customer-acquisition improvements.
-3. Traction measurement across organic search, Google Maps, and advertising channels.
-4. Update this file only when a material project state or priority changes.
-
-## Out of scope for now
-
-- Full WordPress mirror
-- Full HTML/CSS archive of every live page
-- Database backup in Git
-- Detailed plugin-setting archive
-- Deployment automation
-- Automated WordPress restoration
+1. Complete page-level SEO titles, descriptions, and focus keyphrases.
+2. Fix Local SEO coordinates and Persian language metadata after verifying the correct values.
+3. Add meaningful alt text to the site's media library images.
+4. Review legacy 404 paths and decide which deserve 301 redirects.
+5. Maintain the reliability and clarity of the online document-intake flow.
 
 ## Safety boundary
 
-Never commit credentials, API keys, passwords, customer submissions, uploaded customer documents, or other secrets/PII.
+Never commit credentials, API keys, passwords, customer submissions, uploaded customer documents, private personal information, or other secrets/PII.

@@ -1,31 +1,38 @@
 # Send Documents page
 
+Last verified: 2026-11-06
+
 ## Purpose
 
-The source page provides the conversion-focused layout around the live WordPress form. The form plugin remains a WordPress runtime dependency and is not duplicated as application code here.
+The page provides the conversion-focused layout around the live WordPress form. The form plugin remains a WordPress runtime dependency and is not duplicated as application code here.
 
 ## Current integration
 
-The page reserves `#document-upload-form` for the live Forminator form and references Forminator form ID `644`.
+- Public URL: `/send-documents/`
+- WordPress page ID: 141
+- Live Forminator form ID: 644
+- The page reserves `#document-upload-form` for the live form integration.
 
-## Forminator 644 — current field map
+## Forminator 644 — live field map
 
-Based on the current Forminator 644 configuration used in the TarjomeMalek project, the page is designed around these fields:
+The current rendered form includes:
 
-1. نام
-2. نام خانوادگی
-3. شماره تماس — required
-4. زبان مقصد ترجمه — required
-5. بارگذاری مدارک اسکن‌شده — required; the active configuration supports multiple files in one upload area
-6. نوع تأییدات — required/selected according to the live form configuration
-7. تعیین فوریت — optional:
-   - `تا سه روز`
-   - `تا فردا`
-   - `امروز (حتماً تماس بگیرید)`
-8. توضیحات در صورت نیاز — optional
-9. ارسال
+1. نام و نام خانوادگی
+2. تلفن — required
+3. زبان مقصد ترجمه — required (English, Spanish, German, Turkish, Italian, Chinese, Arabic, and other)
+4. ارسال مدارک / آپلود اسکن‌ها — required; multiple files supported; per-file limit shown by the live form is 8 MB
+5. نوع تأییدات
+6. تعیین فوریت — optional
+7. توضیحات در صورت نیاز — optional, 180-character limit
+8. ارسال
 
-The GitHub source does **not** duplicate these fields as a second application form. The live Forminator instance remains the source of truth for field IDs, validation, upload limits, notifications, and submission handling.
+The WordPress/Forminator configuration remains authoritative for validation, upload limits, field options, notifications, and submission storage.
+
+## Submission/loading feedback
+
+The live Forminator default-design CSS uses `.forminator-response-message.forminator-loading::before` for its loading glyph. The first custom CSS attempt targeted form 811 and a paragraph pseudo-element; neither matched the actual loading indicator on live form 644.
+
+The matching CSS has now been added to the GitHub source file `site/assets/css/send-documents.css`. A corresponding WPCode CSS snippet has been created on the site but remains disabled pending owner review and activation. Do not describe the loading UI change as live until the snippet is enabled and visually verified.
 
 ## UX decisions
 
@@ -33,28 +40,10 @@ The GitHub source does **not** duplicate these fields as a second application fo
 - Keep the hero compact so users reach the form quickly.
 - Ask only for information needed to quote and process the translation.
 - Keep the upload experience simple and allow multiple documents in one upload area where the active Forminator configuration permits it.
-- Keep urgency optional; the practical choices are the three options listed above.
+- Keep urgency optional; the practical choices are three urgency levels.
 - Do not display a fixed translation price before the documents are reviewed.
-- Do not introduce a separate document-type field unless the live business process requires it; the current form already collects the information needed for the initial quotation.
-
-## Live integration boundary
-
-The WordPress/Forminator instance is authoritative for:
-
-- field IDs and names
-- required/optional validation
-- file types and file-size limits
-- multiple-file upload behavior
-- email/notification settings
-- submission storage
-- anti-spam/security controls
-
-GitHub is authoritative for the page shell and presentation layer.
+- Do not introduce a separate document-type field unless the live business process requires it.
 
 ## Important boundary
 
-Do not commit customer submissions, uploaded documents, email credentials, SMTP credentials, WordPress configuration, or plugin-generated runtime files to this repository.
-
-## Verification note
-
-The public WordPress site could not be fetched directly during this review, so the field map above is based on the current Forminator 644 configuration and HTML supplied during the TarjomeMalek implementation work. Before the final production CSS is locked, the live rendered Forminator markup should be inspected once in WordPress so selectors can be tied to the actual field wrappers rather than guessed IDs.
+Do not commit customer submissions, uploaded customer documents, email credentials, SMTP credentials, WordPress configuration, plugin-generated runtime files, or secrets.

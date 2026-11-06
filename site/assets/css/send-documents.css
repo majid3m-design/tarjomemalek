@@ -89,6 +89,54 @@
   font-weight: 700;
 }
 
+/* Live Forminator loading state (verified on form 644, 2026-11-06).
+   The real indicator is the response wrapper's ::before, not a child <p>.
+   Deliberately generic so other Forminator custom forms use the same RTL UI. */
+.forminator-ui.forminator-custom-form .forminator-response-message.forminator-loading {
+  direction: rtl !important;
+  text-align: right !important;
+  color: #332c28 !important;
+  background: #fff8f3 !important;
+  border: 1px solid #ead7c9 !important;
+  border-radius: 8px !important;
+  padding: 14px 48px 14px 18px !important;
+  position: relative !important;
+  min-height: 46px;
+  box-sizing: border-box;
+}
+.forminator-ui.forminator-custom-form .forminator-response-message.forminator-loading p {
+  direction: rtl !important;
+  text-align: right !important;
+  color: #332c28 !important;
+  margin: 0 !important;
+  line-height: 1.7 !important;
+}
+.forminator-ui.forminator-custom-form .forminator-response-message.forminator-loading::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 17px !important;
+  left: auto !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin: -9px 0 0 !important;
+  border: 2px solid #e7d4c5 !important;
+  border-top-color: #b85c28 !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  font-family: inherit !important;
+  animation: tm-forminator-spin 0.8s linear infinite !important;
+}
+@keyframes tm-forminator-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .forminator-ui.forminator-custom-form .forminator-response-message.forminator-loading::before {
+    animation: none !important;
+  }
+}
+
 @media (max-width: 850px) {
   .tm-send-grid { grid-template-columns: 1fr; }
   .tm-send-aside { grid-template-columns: repeat(2, minmax(0, 1fr)); }
