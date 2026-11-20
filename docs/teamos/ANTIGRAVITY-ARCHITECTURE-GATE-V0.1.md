@@ -35,6 +35,18 @@ Gemini CLI قدیمی برای حساب‌های رایگان فردی گزین�
 ابزارهای محلی متکی بر مدل‌های Ollama/لوکال فعلاً مجری پشتیبان قابل اتکا برای کل پروژه نیستند؛ سخت‌افزار فعلی کاربر (حدود 12GB RAM و بدون GPU مجزا) برای اجرای مدل‌های کدنویسی بزرگ محدود است. می‌توانند بعداً برای وظایف سبک ارزیابی شوند.
 
 ## 4. پیش‌نیاز سیستم
+لپ‌تاپ برای اجرای Antigravity باید Windows 10/11 نسخه 64 بیتی یا محیط پشتیبانی‌شده دیگر داشته باشد.
+
+**محیط مقصد محصول با محیط توسعه متفاوت است:** مالک تصریح کرده نسخه نهایی TMOS باید روی رایانه رومیزی فعلی او با Windows 7 نیز قابل استفاده باشد. این خواسته باید در معماری لحاظ و آزموده شود؛ Windows 7 برای نصب Antigravity یا توسعه محلی هدف نیست.
+
+- مسیر سازگاری اولیه: اجرای TMOS در مرورگر Mozilla Firefox 115 ESR روی Windows 7.
+- Mozilla طبق اعلام 2026-07-11 به‌روزرسانی Firefox 115 ESR را تا مارس 2027 تمدید کرده است؛ بعد از آن تمدید مجدد تضمین‌شده نیست.
+- Windows 7 از 2020-01-14 خارج از پشتیبانی Microsoft است.
+- عامل باید ماتریس سازگاری Firefox 115 ESR برای رابط، ورود، IndexedDB، Service Worker، cache، فایل، دانلود، PDF، چاپ و offline بسازد.
+- از runtime یا مرورگر قدیمی بدون پشتیبانی امنیتی برای ایجاد یک بسته native استفاده نکند.
+- اگر یک نیاز امنیتی/آفلاین با Windows 7 سازگار نیست، آن را پنهان نکند؛ محدودیت را مستند و گزینه ارتقای OS/محدودسازی عملکرد را پیشنهاد کند.
+
+## 6. مرحله اول — فقط ارزیابی معماری (بدون کدنویسی)
 
 نسخه Desktop رسمی Antigravity برای Windows حداقل Windows 10 نسخه 64-bit می‌خواهد. اگر رایانه مورد استفاده هنوز Windows 7/32-bit باشد، نصب Desktop پشتیبانی نمی‌شود و باید از رایانه/محیط دیگری با سیستم پشتیبانی‌شده استفاده شود. پیش از هر نصب، نسخه و معماری سیستم تأیید شود.
 
@@ -75,7 +87,7 @@ The report must contain:
 10. Security/privacy threat model; secrets and bank/payment details must not enter repository, fixtures, logs or screenshots.
 11. Phased delivery plan with dependencies, acceptance criteria and rollback/backup steps.
 12. Risk register with P0/P1 severity and mitigation.
-13. A blunt feasibility verdict: what can be delivered reliably in MVP, what must be deferred, and what is not realistic under zero paid infrastructure.
+13. A blunt feasibility verdict: what can be delivered reliably in MVP, what must be deferred, and what is not realistic under zero paid infrastructure.\n14. A Windows 7 compatibility matrix specifically for Firefox 115 ESR: all critical UI, offline and file/PDF/print flows; identify unsupported APIs and security compromises.
 
 **Hard constraints:**
 - No implementation in this task.
@@ -84,20 +96,20 @@ The report must contain:
 - No secret, token, customer data or bank account in code or PR.
 - Do not add marketing CRM, lead funnels or sales campaign functionality.
 - Do not alter the approved process: official translation is printed on the physical Judiciary letterhead; the office's private letterhead is for unofficial translations only.
-- Do not claim real-time collaboration during a total network outage.
+- Do not claim real-time collaboration during a total network outage.\n- Final product must be usable on the owner's existing Windows 7 desktop through a tested browser path; Windows 7 is not the development environment.\n- Do not solve compatibility by shipping an obsolete, unpatched Electron/CEF or browser runtime.\n- Explicitly document that Windows 7 is unsupported by Microsoft and Firefox 115 ESR security updates are currently announced only through March 2027.
 - Any unresolved rule must be explicitly labelled assumption/open decision, not silently invented.
 - If quota is reached, stop; keep the repository unchanged except for the approved documentation PR, and resume after the free reset. Never ask the owner to upgrade.
 
-## 6. معیار قبولی عامل معماری
+## 7. معیار قبولی عامل معماری
 
 - سند معماری تمام 13 موضوع بالا را پوشش دهد.
 - هر نیازمندی RFP به راهکار و آزمون قابل ردیابی باشد.
-- هزینه اجباری سرویس‌های بیرونی صفر باشد یا صریحاً به‌عنوان مانع MVP اعلام شود.
+- هزینه اجباری سرویس‌های بیرونی صفر باشد یا صریحاً به‌عنوان مانع MVP اعلام شود.\n- ماتریس Windows 7 / Firefox 115 ESR برای همه گردش‌های حیاتی ارائه شود و روش آزمون‌پذیر داشته باشد.
 - مسیر استقرار بدون کارت بانکی/قبض مصرفی اجباری تا حد امکان مشخص باشد.
 - فرمول‌ها و تاریخ‌های نمونه با مثال‌های محاسباتی آزمون‌پذیر باشند.
 - فقط یک PR مستنداتی ایجاد شود؛ هیچ کد برنامه‌ای تغییر نکند.
 - مدیر پروژه/عامل چهارم پیش از تأیید مالک، هیچ مجوز پیاده‌سازی را صادر نکند.
 
-## 7. Prompt کوتاه برای شروع در Antigravity
+## 9. Prompt کوتاه برای شروع در Antigravity
 
-Select the TMOS repository and use the free Individual plan. Read "docs/teamos/ANTIGRAVITY-ARCHITECTURE-GATE-V0.1.md" and execute only Section 5. First show your plan and wait for approval. Do not code. Do not enable billing or ask for an upgrade. If you reach quota, stop and preserve the current state.
+Select the TMOS repository and use the free Individual plan. Read "docs/teamos/ANTIGRAVITY-ARCHITECTURE-GATE-V0.1.md" and execute only Section 5. First show your plan and wait for approval. Do not code. Do not enable billing or ask for an upgrade. If you reach quota, stop and preserve the current state. The final app must also run on the owner's Windows 7 desktop through Firefox 115 ESR; assess compatibility, but do not use obsolete unpatched runtimes.
