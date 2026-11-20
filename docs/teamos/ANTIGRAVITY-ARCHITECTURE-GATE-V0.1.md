@@ -1,13 +1,13 @@
 # دروازه انتخاب مجری و ارزیابی معماری TMOS — Antigravity Free
 
 - تاریخ: 2026-11-20
-- وضعیت: نامزد اصلی برای آزمون؛ هنوز مجری قطعی توسعه گسترده نشده
+- وضعیت: نامزد مشروط/تأییدنشده؛ به دلیل محدودیت جغرافیایی باید ورود رسمی آزموده شود. در حال حاضر مأموریت فعال به Codex Free Local منتقل شده است.
 - مدیر پروژه/عامل چهارم: ChatGPT
 - مالک محصول: دفتر ترجمه رسمی ملک
 
 ## 1. تصمیم موقت انتخاب مجری
 
-**نامزد اصلی: Google Antigravity در طرح رایگان Individual ($0/month).**
+**نامزد بررسی‌شده: Google Antigravity در طرح رایگان Individual ($0/month) — وضعیت برای این کاربر تأیید نشده و انتخاب اول فعلی نیست.**
 
 دلیل انتخاب:
 - محصول فعلی گوگل برای توسعه عامل‌محور است و هم App، هم CLI و هم IDE extension دارد.
@@ -113,3 +113,8 @@ The report must contain:
 ## 9. Prompt کوتاه برای شروع در Antigravity
 
 Select the TMOS repository and use the free Individual plan. Read "docs/teamos/ANTIGRAVITY-ARCHITECTURE-GATE-V0.1.md" and execute only Section 5. First show your plan and wait for approval. Do not code. Do not enable billing or ask for an upgrade. If you reach quota, stop and preserve the current state. The final app must also run on the owner's Windows 7 desktop through Firefox 115 ESR; assess compatibility, but do not use obsolete unpatched runtimes.
+
+
+---
+## تغییر وضعیت در 2026-11-21
+این سند تاریخی است و نباید به‌عنوان دستور فعال مجری تلقی شود. Jules برای کاربر به‌دلیل خطای منطقه جغرافیایی قابل استفاده نبوده و از مسیر حذف شده است. Antigravity نیز شرط جغرافیایی حساب Google دارد و تا تأیید دسترسی واقعی کاربر، نامزد فعال نیست. مأموریت نخست اکنون به CODING-AGENT-SELECTION-GATE-V0.2.md و Codex Free Local منتقل شده است.
